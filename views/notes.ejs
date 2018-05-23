@@ -19,7 +19,10 @@
 
     </header>
 
-
+<form method="post" action="/notes">
+  <textarea name="note"> </textarea>
+  <input type="submit" value="Save" />
+    </form>
 
     <% for(let i = 0; i < notes.length; i++) { %>
 
@@ -31,19 +34,25 @@
 
         </div>
 
-        <div class="card-body">
+        <div class="card-body" onclick="this.contentEditable = true;">
+          
 
           <%= notes[i] %>
+          <button onclick="deleteNote(<%=i %>)" class="btn btn-danger">
+           DELETE THIS
+            
+          </button>
 
         </div>
 
       </div>
 
     <% } %>  
-<form method="post" action="/notes">
-  <textarea name="note"> </textarea>
-  <input type="submit" value="Save" />
-    </form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
   </body>
 
 </html>
